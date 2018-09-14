@@ -61,4 +61,11 @@ y = rnorm(1000)
 logi_xy = (x + y > 0)
 num_logi_xy = as.numeric(logi_xy)
 fac_num_logi = as.factor(num_logi_xy)
+
+second_data = cbind(x, y , logi_xy , num_logi_xy , fac_num_logi)
 ```
+Dataframe Description:
+
+* Size of the dataset is: `r dim(second_data)`
+* x statistics: Mean of x is `r mean(x)`, while median of x is `r median(x)`
+* The proportion of "true" cases in logical vector is `r sum(num_logi_xy)/length(num_logi_xy)`
