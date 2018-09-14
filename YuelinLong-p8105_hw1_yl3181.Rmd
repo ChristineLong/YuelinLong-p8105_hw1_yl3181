@@ -72,6 +72,7 @@ Dataframe Description:
 
 ```{r}
 library(ggplot2)
-ggplot(data.frame(second_data), aes(x = x, y = y, color = logi_xy)) + geom_point()
-
+ggplot(data.frame(second_data), aes(x = x, y = y, color = logi_xy)) + geom_point() + labs(color = "logical variables")  
+ggplot(data.frame(second_data), aes(x = x, y = y, color = num_logi_xy)) + geom_point() + labs(color = "numeric variables")  
+ggplot(data.frame(second_data), aes(x = x, y = y, color = fac_num_logi)) + geom_point() + labs(color = "factor variables")  
 ```
