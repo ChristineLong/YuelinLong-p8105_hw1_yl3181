@@ -24,3 +24,11 @@ first_data = cbind(random_sample,logic_random_sample,char_vec,fac_char_vec)
 mean_first_data = colMeans(apply(first_data,2,as.numeric))
 print(mean_first_data)
 ```
+
+
+```{r eval=FALSE}
+num_logic_random_sample = as.numeric(logic_random_sample)
+num_char_vec = as.numeric(char_vec)
+num_fac_char_vec = as.numeric(fac_char_vec)
+```
+For format changes, as.numeric() works for logical vectors and factor vectors, but won't work for character vector.
