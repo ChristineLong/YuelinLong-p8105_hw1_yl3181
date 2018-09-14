@@ -32,3 +32,11 @@ num_char_vec = as.numeric(char_vec)
 num_fac_char_vec = as.numeric(fac_char_vec)
 ```
 For format changes, as.numeric() works for logical vectors and factor vectors, but won't work for character vector.
+
+```{r eval=FALSE}
+mult_change_char_vec = as.numeric(as.factor(char_vec))
+mult_change_fac_char_vec = as.numeric(as.character(fac_char_vec))
+```
+For multiple format changes, if a vector has been converted to factor(numeric) before, all types vectors can be changed to numeric.
+
+Note: In my dataframe, factor vector is numeric. If use character factor vector, it won't be converted to numeric.
