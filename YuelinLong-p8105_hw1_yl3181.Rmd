@@ -1,0 +1,26 @@
+---
+title: "p8105_hw1_yl3181"
+author: "Yuelin Long"
+date: "September 14, 2018"
+output: html_document
+---
+
+#Problem 1
+Create and take the column means of a data frame comprised of:
+
++ A random sample of size 10 from a uniform[0, 5] distribution
++ A logical vector indicating whether elements of the sample are greater than 2
++ A (length-10) character vector
++ A (length-10) factor vector
+
+```{r warning=FALSE}
+set.seed(1)
+random_sample = runif(10,0,5)
+logic_random_sample = random_sample > 2
+char_vec = unlist(strsplit("mynameisYL",""))
+fac_char_vec = factor(char_vec, labels = c(1:9))
+
+first_data = cbind(random_sample,logic_random_sample,char_vec,fac_char_vec)
+mean_first_data = colMeans(apply(first_data,2,as.numeric))
+print(mean_first_data)
+```
