@@ -41,3 +41,24 @@ For multiple format changes, if a vector has been converted to factor(numeric) b
 
 Note: In my dataframe, factor vector is numeric. If character factor vector is used, it won't be converted to numeric.
 
+
+#Problem 2
+Create a data frame comprised of:
+
++ x: a random sample of size 1000 from a standard Normal distribution
++ y: a random sample of size 1000 from a standard Normal distribution
++ A logical vector indicating whether the x + y > 0
++ A numeric vector created by coercing the above logical vector
++ A factor vector created by coercing the above logical vector
+
+```{r}
+set.seed(1)
+x = rnorm(1000)
+
+set.seed(2)
+y = rnorm(1000)
+
+logi_xy = (x + y > 0)
+num_logi_xy = as.numeric(logi_xy)
+fac_num_logi = as.factor(num_logi_xy)
+```
