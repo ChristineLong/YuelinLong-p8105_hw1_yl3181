@@ -96,7 +96,7 @@ Dataframe Description:
 
 ``` r
 library(ggplot2)
-ggplot(second_data, aes(x = x, y = y, color = logi_xy)) + geom_point() + labs(color = "numeric variables")  
+ggplot(second_data, aes(x = x, y = y, color = logi_xy)) + geom_point() + labs(color = "logical variables")  
 ```
 
 ![](YuelinLong-p8105_hw1_yl3181_files/figure-markdown_github/unnamed-chunk-5-1.png)

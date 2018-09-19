@@ -72,7 +72,7 @@ Dataframe Description:
 
 ```{r}
 library(ggplot2)
-ggplot(second_data, aes(x = x, y = y, color = logi_xy)) + geom_point() + labs(color = "numeric variables")  
+ggplot(second_data, aes(x = x, y = y, color = logi_xy)) + geom_point() + labs(color = "logical variables")  
 ggsave("x-y scatter plot with logi color.png")
 
 ggplot(second_data, aes(x = x, y = y, color = num_logi_xy)) + geom_point() + labs(color = "numeric variables")  
