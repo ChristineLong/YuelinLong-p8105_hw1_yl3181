@@ -14,15 +14,17 @@ Create and take the column means of a data frame comprised of:
 + A (length-10) factor vector
 
 ```{r warning=FALSE}
-set.seed(1)
-random_sample = runif(10,0,5)
-logic_random_sample = random_sample > 2
-char_vec = unlist(strsplit("mynameisYL",""))
-fac_char_vec = factor(char_vec, labels = c(1:9))
+library(tidyverse)
 
-first_data = cbind(random_sample,logic_random_sample,char_vec,fac_char_vec)
-mean_first_data = colMeans(apply(first_data,2,as.numeric))
-print(mean_first_data)
+set.seed(1)
+first_data = tibble(
+random_sample = runif(10,0,5),
+logic_random_sample = random_sample > 2,
+char_vec = unlist(strsplit("mynameisYL","")),
+fac_char_vec = factor(char_vec)
+)
+
+sapply(first_data,mean)
 ```
 
 
@@ -38,8 +40,6 @@ mult_change_char_vec = as.numeric(as.factor(char_vec))
 mult_change_fac_char_vec = as.numeric(as.character(fac_char_vec))
 ```
 For multiple format changes, if a vector has been converted to factor(numeric) before, all types vectors can be changed to numeric.
-
-Note: In my dataframe, factor vector is numeric. If character factor vector is used, it won't be converted to numeric.
 
 
 #Problem 2
@@ -62,7 +62,7 @@ logi_xy = (x + y > 0)
 num_logi_xy = as.numeric(logi_xy)
 fac_num_logi = as.factor(num_logi_xy)
 
-second_data = cbind(x, y , logi_xy , num_logi_xy , fac_num_logi)
+second_data = tibble(x, y , logi_xy , num_logi_xy , fac_num_logi)
 ```
 Dataframe Description:
 
@@ -72,9 +72,9 @@ Dataframe Description:
 
 ```{r}
 library(ggplot2)
-ggplot(data.frame(second_data), aes(x = x, y = y, color = logi_xy)) + geom_point() + labs(color = "logical variables")
+ggplot(second_data, aes(x = x, y = y, color = logi_xy)) + geom_point() + labs(color = "numeric variables")  
 ggsave("x-y scatter plot with logi color.png")
 
-ggplot(data.frame(second_data), aes(x = x, y = y, color = num_logi_xy)) + geom_point() + labs(color = "numeric variables")  
-ggplot(data.frame(second_data), aes(x = x, y = y, color = fac_num_logi)) + geom_point() + labs(color = "factor variables") 
+ggplot(second_data, aes(x = x, y = y, color = num_logi_xy)) + geom_point() + labs(color = "numeric variables")  
+ggplot(second_data, aes(x = x, y = y, color = fac_num_logi)) + geom_point() + labs(color = "factor variables") 
 ```
