@@ -2,7 +2,7 @@
 title: "P8105 Homework 1"
 author: "Yuelin Long  yl3181"
 date: "September 14, 2018"
-output: html_document
+output: github_document
 ---
 
 #Problem 1
