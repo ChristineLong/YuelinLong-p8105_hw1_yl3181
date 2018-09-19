@@ -30,13 +30,12 @@ library(tidyverse)
 
 ``` r
 set.seed(1)
-first_data = tibble(
-random_sample = runif(10,0,5),
-logic_random_sample = random_sample > 2,
-char_vec = unlist(strsplit("mynameisYL","")),
+random_sample = runif(10,0,5)
+logic_random_sample = random_sample > 2
+char_vec = unlist(strsplit("mynameisYL",""))
 fac_char_vec = factor(char_vec)
-)
 
+first_data = tibble(random_sample,logic_random_sample,char_vec,fac_char_vec)
 sapply(first_data,mean)
 ```
 
@@ -44,6 +43,8 @@ sapply(first_data,mean)
     ##            2.757569            0.600000                  NA 
     ##        fac_char_vec 
     ##                  NA
+
+Taking means works for numeric and logical variables, but won't work for character and factor variables. The reason is that people cannot do calculations on character and factor without changes of format.
 
 ``` r
 num_logic_random_sample = as.numeric(logic_random_sample)
@@ -58,9 +59,9 @@ mult_change_char_vec = as.numeric(as.factor(char_vec))
 mult_change_fac_char_vec = as.numeric(as.character(fac_char_vec))
 ```
 
-For multiple format changes, if a vector has been converted to factor(numeric) before, all types vectors can be changed to numeric.
+For multiple format changes, if a character variable was changed to factor, then it can be changed to be numeric; but if a factor (string type) was changed to character, then it can't be changed back to numeric.
 
-Note: In my dataframe, factor vector is numeric. If character factor vector is used, it won't be converted to numeric.
+Note: In my dataframe, the factor variable is represented in different strings. If it was represented in numerics, then it can be changed to numeric even if it was changed to character before.
 
 Problem 2
 =========
@@ -84,7 +85,7 @@ logi_xy = (x + y > 0)
 num_logi_xy = as.numeric(logi_xy)
 fac_num_logi = as.factor(num_logi_xy)
 
-second_data = tibble (x, y , logi_xy , num_logi_xy , fac_num_logi)
+second_data = tibble(x, y , logi_xy , num_logi_xy , fac_num_logi)
 ```
 
 Dataframe Description:
